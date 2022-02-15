@@ -61,9 +61,11 @@ public class ProductMenu {
         System.out.println("Nhập giá sản phẩm: ");
         Long price = scanner.nextLong();
         scanner.next();
+        System.out.println("Nhập số lượng sản phẩm");
+        int amount = scanner.nextInt();
         System.out.println("Nhập mô tả sản phẩm: ");
         String description = scanner.nextLine();
-        Product product = new Product(id, name, price, description);
+        Product product = new Product(id,name,price,amount,description);
         return product;
     }
 
@@ -113,6 +115,18 @@ public class ProductMenu {
      Product result = productManagement.findProductById(id);
      if (result == null){
          System.out.println("Không có trong danh sách");
+     }else {
+         System.out.println(result);
+     }
+ }
+
+ public static void buyProductById(ProductManagement productManagement){
+        int choice = -1;
+     System.out.println("Nhập Id sản phẩm bạn muốn mua");
+     String id = scanner.nextLine();
+     Product result = productManagement.findProductById(id);
+     if (result == null){
+         System.out.println("Không có sản phẩm bạn muốn mua");
      }else {
          System.out.println(result);
      }

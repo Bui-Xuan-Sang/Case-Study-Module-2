@@ -7,21 +7,28 @@ import java.util.Scanner;
 
 public class ManagementMenu {
     public static Scanner scanner = new Scanner(System.in);
+    UserLogin userLogin = new UserLogin();
 
-    public void run() {
-        int choice = -1;
-        ProductManagement productManagement = new ProductManagement();
-        do {
-            menu();
-            System.out.println("Nhập lựa chọn của bạn:");
-            choice = scanner.nextInt();
-            switch (choice) {
-                case 1: {
-                    ProductMenu.run();
-                    break;
+    public void run(String username) {
+        if (username.equals("admin123")) {
+
+
+            int choice = -1;
+            ProductManagement productManagement = new ProductManagement();
+            do {
+                menu();
+                System.out.println("Nhập lựa chọn của bạn:");
+                choice = scanner.nextInt();
+                switch (choice) {
+                    case 1: {
+                        ProductMenu.run();
+                        break;
+                    }
                 }
-            }
-        } while (choice != 0);
+            } while (choice != 0);
+        } else {
+            userLogin.run();
+        }
     }
 
     private void menu() {
@@ -29,7 +36,7 @@ public class ManagementMenu {
         System.out.println("1. Quản lý sản phẩm");
         System.out.println("0. Thoát");
     }
-        
+
 //        do {
 //            System.out.println("---Ứng dụng quản lí sản phẩm---");
 //            menu();

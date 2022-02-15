@@ -40,7 +40,7 @@ public class LoginMenu {
         boolean isLogin = userManagement.checkUserLogin(username,password);
         if (isLogin){
             System.out.println("Đăng nhập thành công!");
-            managementMenu.run();
+            managementMenu.run(username);
         }else {
             System.err.println("Username hoặc Password không đúng");
         }
